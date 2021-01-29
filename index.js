@@ -64,13 +64,14 @@ const zooAnimals = [
 
   function animalNames(zooAnimals){
     zooAnimals.forEach(function(name, sciName){
-      const array = [name.animal_name + sciName.scientific_name];
+      console.log(name.animal_name);
+      console.log(sciName.scientific_name);
 
-      return array;
-    })
+      return `name: ${name}, scientific: ${sciName}`;
+    });
   }
 
-  console.log(animalNames());
+  animalNames();
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -79,20 +80,29 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(array){
+    const newArray = array.map(function(animal_name){
+      return animal_name.toLowerCase();
+    });
+    return newArray;
   }
   
+  console.log(lowerCaseNames(zooAnimals));
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(array){
+    const newArray = array.filter(function(population){
+      return population < 5;
+    });
+
+    return newArray;
   }
   
+  console.log(lowPopulationAnimals(zooAnimals));
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
